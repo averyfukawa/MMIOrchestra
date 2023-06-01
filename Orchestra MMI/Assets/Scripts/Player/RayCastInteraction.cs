@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Security;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 public abstract class RayCastInteraction : MonoBehaviour
 {
+    [Header("Interaction Events")]
     [Tooltip("Message displayed to player when looking at an interactable.")]
     public string promptMessage;
 
@@ -34,8 +37,8 @@ public abstract class RayCastInteraction : MonoBehaviour
         {
             shouldUpdate = false;
             radialImage.enabled = true;
-            Mathf.Clamp(indicatorTimer += Time.deltaTime, 0, 1);
-            radialImage.fillAmount = indicatorTimer;
+            float clampedIndicator = Mathf.Clamp(indicatorTimer += Time.deltaTime, 0, 1);
+            radialImage.fillAmount = clampedIndicator;
 
             if (indicatorTimer >= maxIndicatorTimer)
             {
@@ -51,8 +54,8 @@ public abstract class RayCastInteraction : MonoBehaviour
             if (shouldUpdate && indicatorTimer != maxIndicatorTimer && !hasreachedMax)
             {
                 radialImage.enabled = true;
-                Mathf.Clamp(indicatorTimer -= Time.deltaTime, 0, 1);
-                radialImage.fillAmount = indicatorTimer;
+                float clampedIndicator = Mathf.Clamp(indicatorTimer -= Time.deltaTime, 0, 1);
+                radialImage.fillAmount = clampedIndicator;
 
                 if (indicatorTimer <= 0.0f)
                 {
@@ -72,6 +75,55 @@ public abstract class RayCastInteraction : MonoBehaviour
             myEvent.Invoke();
         }
         
+    }
+
+    private void IncreaseRadial()
+    {
+        if (Input.GetKey(pressCommand) && isLooking && !hasreachedMax)
+        {
+            shouldUpdate = false;
+            radialImage.enabled = true;
+            float clampedIndicator = Mathf.Clamp(indicatorTimer += Time.deltaTime, 0, 1);
+            radialImage.fillAmount = clampedIndicator;
+
+            if (indicatorTimer >= maxIndicatorTimer)
+            {
+                hasreachedMax = true;
+                indicatorTimer = 0.0f;
+                radialImage.fillAmount = maxIndicatorTimer;
+                shouldUpdate = false;
+                radialImage.enabled = false;
+            }
+        }
+    }
+
+    private void DecreaseRadial()
+    {
+        if (shouldUpdate && indicatorTimer != maxIndicatorTimer && !hasreachedMax)
+        {
+            radialImage.enabled = true;
+            float clampedIndicator = Mathf.Clamp(indicatorTimer -= Time.deltaTime, 0, 1);
+            radialImage.fillAmount = clampedIndicator;
+
+            if (indicatorTimer <= 0.0f)
+            {
+                indicatorTimer = 0.0f;
+                radialImage.fillAmount = 0;
+                radialImage.enabled = false;
+                shouldUpdate = false;
+            }
+        }
+    }
+
+    private void KeyReleased()
+    {
+        if (Input.GetKeyUp(pressCommand))
+        {
+            shouldUpdate = true;
+            hasreachedMax = false;
+
+            myEvent.Invoke();
+        }
     }
 
     public void BaseInteract()

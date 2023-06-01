@@ -26,14 +26,14 @@ public class PlayerInteract : MonoBehaviour
         for (int i = 0; i < loadingBar.Length; i++)
         {
             loadingBar[i].isLooking = false;
-            //loadingBar[i].shouldUpdate = false;
         }
 
         // Create a new ray at the centre of the camera, shooting forwards.
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance);
 
-        RaycastHit hitInfo; // var to store collision information
+        // var to store collision information
+        RaycastHit hitInfo;
 
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
@@ -41,7 +41,29 @@ public class PlayerInteract : MonoBehaviour
             {
                 hitInfo.collider.GetComponent<RayCastInteraction>().isLooking = true;
                 UIText.UpdateText(hitInfo.collider.GetComponent<RayCastInteraction>().promptMessage);
+                string nameOfInstrument = hitInfo.collider.name.ToString();
+
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(0);
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(1);
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(2);
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(3);
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(4);
+                if (nameOfInstrument == "")
+                    StopAutoVolDecrease(6);
+
             }
         }
+    }
+
+    [SerializeField] private AudioRandomizer randomizer;
+    
+    private void StopAutoVolDecrease(int lookedInstrument)
+    {
+        StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
     }
 }
