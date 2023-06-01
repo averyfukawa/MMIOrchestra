@@ -12,6 +12,7 @@ public class AudioRandomizer : MonoBehaviour
     [SerializeField] private float repeatTimer = 7.0f;
 
     private int previousNumber = 100;
+    [HideInInspector] public int fixingInstrumentIndex = 101;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class AudioRandomizer : MonoBehaviour
     {
         int randomIndex = Random.Range(0, Instrument.Length);
 
-        while (randomIndex == previousNumber)
+        while (randomIndex == previousNumber && randomIndex == fixingInstrumentIndex)
         {
             randomIndex = Random.Range(0, Instrument.Length);
         }

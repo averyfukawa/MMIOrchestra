@@ -1,17 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro.EditorUtilities;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
+    [Header("Camera to point the ray from")]
     [SerializeField] private Camera cam;
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask mask;
 
-    [SerializeField] private Cellos[] loadingBar;
+    [Header("Interaction Events")]
     private PlayerUI UIText;
+
+    [Header("Radius filled of the circle")]
+    [SerializeField] private float indicatorTimer = 0.0f;
+    [SerializeField] private float maxIndicatorTimer = 1.0f;
+
+    [Header("Loading Bar Image")]
+    //[SerializeField] private Cellos[] loadingBar;
+    //[SerializeField] private Image radialImage = null;
+    [SerializeField] private Image[] radialImage = null;
+
+    [Header("Events that can be placed, like animations")]
+    [SerializeField] private UnityEvent myEvent = null;
+
+    //Different bools to make sure we can update the looked at instrument
+    private bool shouldUpdate = false;
+    private bool hasBeenClicked = false;
+    private bool hasReachedMax = false;
+
+    [Header("Key needed to be pressed to interact")]
+    [SerializeField] private KeyCode pressCommand = KeyCode.Mouse0;
+
+    [Header("Instrument Volume Interaction")]
+    [SerializeField] private AudioRandomizer randomizer;
 
     private void Start()
     {
@@ -23,47 +49,144 @@ public class PlayerInteract : MonoBehaviour
     {
         UIText.UpdateText(string.Empty);
 
-        for (int i = 0; i < loadingBar.Length; i++)
-        {
-            loadingBar[i].isLooking = false;
-        }
-
         // Create a new ray at the centre of the camera, shooting forwards.
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance);
 
-        // var to store collision information
-        RaycastHit hitInfo;
-
-        if (Physics.Raycast(ray, out hitInfo, distance, mask))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, distance, mask))
         {
+            string nameOfInstrument = hitInfo.collider.name.ToString();
             if (hitInfo.collider.GetComponent<RayCastInteraction>() != null)
             {
-                hitInfo.collider.GetComponent<RayCastInteraction>().isLooking = true;
+                if (Input.GetKey(pressCommand) && !hasReachedMax && hitInfo.transform.CompareTag("Interact"))
+                {
+                    hasBeenClicked = true;
+
+                    // Experiment to not have a giant array?
+                    if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(0);
+                        IncreaseRadial(0);
+                    }
+                    if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(1);
+                        IncreaseRadial(1);
+                    }
+                    if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(2);
+                        IncreaseRadial(2);
+                    }
+                    if (nameOfInstrument.Contains("Saxophone") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(3);
+                        IncreaseRadial(3);
+                    }
+                    if (nameOfInstrument.Contains("French Horn") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(4);
+                        IncreaseRadial(4);
+                    }
+                    if (nameOfInstrument.Contains("Trumpet") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(5);
+                        IncreaseRadial(5);
+                    }
+                    if (nameOfInstrument.Contains("Cello") && hitInfo.transform.CompareTag("Interact"))
+                    {
+                        StopAutoVolDecrease(6);
+                        IncreaseRadial(6);
+                    }
+                }
+
+                if (hitInfo.transform.CompareTag("Interact"))
+                {
+                    if (Input.GetKeyUp(pressCommand) && hasBeenClicked)
+                        KeyReleased();
+
+                    if (shouldUpdate && indicatorTimer != maxIndicatorTimer && !hasReachedMax)
+                    {
+                        if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(0);
+                        }
+                        if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(1);
+                        }
+                        if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(2);
+                        }
+                        if (nameOfInstrument.Contains("Saxophone") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(3);
+                        }
+                        if (nameOfInstrument.Contains("French Horn") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(4);
+                        }
+                        if (nameOfInstrument.Contains("Trumpet") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(5);
+                        }
+                        if (nameOfInstrument.Contains("Cello") && hitInfo.transform.CompareTag("Interact"))
+                        {
+                            DecreaseRadial(6);
+                        }
+                    }
+                }
+
                 UIText.UpdateText(hitInfo.collider.GetComponent<RayCastInteraction>().promptMessage);
-                string nameOfInstrument = hitInfo.collider.name.ToString();
-
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(0);
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(1);
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(2);
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(3);
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(4);
-                if (nameOfInstrument == "")
-                    StopAutoVolDecrease(6);
-
             }
+        }
+        Debug.Log("Has been clicked status: " + hasBeenClicked);
+    }
+
+    private void StopAutoVolDecrease(int lookedInstrument)
+    {
+        randomizer.fixingInstrumentIndex = lookedInstrument;
+        StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
+    }
+
+    private void IncreaseRadial(int rad)
+    {
+        shouldUpdate = false;
+        radialImage[rad].enabled = true;
+        float clampedIndicator = Mathf.Clamp(indicatorTimer += Time.deltaTime, 0, 1);
+        radialImage[rad].fillAmount = clampedIndicator;
+
+        if (indicatorTimer >= maxIndicatorTimer)
+        {
+            hasReachedMax = true;
+            indicatorTimer = 0.0f;
+            radialImage[rad].fillAmount = maxIndicatorTimer;
+            shouldUpdate = false;
+            radialImage[rad].enabled = false;
         }
     }
 
-    [SerializeField] private AudioRandomizer randomizer;
-    
-    private void StopAutoVolDecrease(int lookedInstrument)
+    private void DecreaseRadial(int rad)
     {
-        StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
+        radialImage[rad].enabled = true;
+        float clampedIndicator = Mathf.Clamp(indicatorTimer -= Time.deltaTime, 0, 1);
+        radialImage[rad].fillAmount = clampedIndicator;
+        
+        if (indicatorTimer <= 0.0f)
+        {
+            indicatorTimer = 0.0f;
+            radialImage[rad].fillAmount = 0;
+            radialImage[rad].enabled = false;
+            shouldUpdate = false;
+        }
+    }
+
+    private void KeyReleased()
+    {
+        hasBeenClicked = false;
+        shouldUpdate = true;
+        hasReachedMax = false;
+        myEvent.Invoke();
     }
 }

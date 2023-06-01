@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 49699488}
   m_Layer: 9
   m_Name: Violin Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,15 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Violins
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: Violins!
   radialImage: {fileID: 275985262}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &70348050
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +427,7 @@ GameObject:
   - component: {fileID: 70348055}
   m_Layer: 9
   m_Name: Trumpet Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,14 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Trumpets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 147860532}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &105462547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1192,7 @@ Transform:
   - {fileID: 1529944936}
   - {fileID: 304425606}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &233207266
 GameObject:
@@ -1417,7 +1403,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345844366}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -139.23901, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1555,7 +1541,7 @@ GameObject:
   - component: {fileID: 304425607}
   m_Layer: 9
   m_Name: Conga Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1587,14 +1573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Congas!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1342112485}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &304425608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1694,34 +1673,22 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  loadingBar:
-  - {fileID: 1287684480}
-  - {fileID: 49699488}
-  - {fileID: 362563196}
-  - {fileID: 576725993}
-  - {fileID: 1352972443}
-  - {fileID: 70348055}
-  - {fileID: 1276993593}
-  - {fileID: 2095775316}
-  - {fileID: 1595330122}
-  - {fileID: 1174341791}
-  - {fileID: 1345678635}
-  - {fileID: 2039668414}
-  - {fileID: 660483636}
-  - {fileID: 1345678635}
-  - {fileID: 1209330794}
-  - {fileID: 523836927}
-  - {fileID: 1019830234}
-  - {fileID: 1037766162}
-  - {fileID: 437159156}
-  - {fileID: 1218786186}
-  - {fileID: 808062159}
-  - {fileID: 1335714098}
-  - {fileID: 1385845766}
-  - {fileID: 989305806}
-  - {fileID: 1758161964}
-  - {fileID: 1529944937}
-  - {fileID: 304425607}
+  indicatorTimer: 0
+  maxIndicatorTimer: 1
+  radialImage:
+  - {fileID: 404218212}
+  - {fileID: 878965040}
+  - {fileID: 275985262}
+  - {fileID: 1347441844}
+  - {fileID: 1892677966}
+  - {fileID: 147860532}
+  - {fileID: 909558377}
+  - {fileID: 1342112485}
+  myEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pressCommand: 323
+  randomizer: {fileID: 1701772503}
 --- !u!54 &325458675
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2136,7 +2103,7 @@ GameObject:
   - component: {fileID: 362563196}
   m_Layer: 9
   m_Name: Clarinet Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2228,14 +2195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Clarinets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 404218212}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &373261976
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,7 +2305,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345844366}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -156.076, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2419,7 +2379,7 @@ Transform:
   - {fileID: 1183125487}
   - {fileID: 771397049}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437159154
 GameObject:
@@ -2436,7 +2396,7 @@ GameObject:
   - component: {fileID: 437159156}
   m_Layer: 9
   m_Name: Saxophone Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2468,14 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Saxophones!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1347441844}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &437159157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2681,7 +2634,7 @@ GameObject:
   - component: {fileID: 523836927}
   m_Layer: 9
   m_Name: Clarinet Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2713,14 +2666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Clarinets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 404218212}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &523836928
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2958,7 +2904,7 @@ GameObject:
   - component: {fileID: 576725993}
   m_Layer: 9
   m_Name: Saxophone Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3050,14 +2996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Saxophones!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1347441844}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &660483634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3012,7 @@ GameObject:
   - component: {fileID: 660483636}
   m_Layer: 9
   m_Name: Violin Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3104,15 +3043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Violins
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: Violins!
   radialImage: {fileID: 275985262}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &660483637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3535,7 +3467,7 @@ GameObject:
   - component: {fileID: 808062159}
   m_Layer: 9
   m_Name: French Horn Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3566,15 +3498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: French Horn
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: French Horn!
   radialImage: {fileID: 1892677966}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &808062160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3861,7 +3786,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345844366}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -215.096, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4103,7 +4028,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345844366}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -91.69, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4537,7 +4462,7 @@ GameObject:
   - component: {fileID: 989305806}
   m_Layer: 9
   m_Name: Trumpet Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4569,14 +4494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Trumpets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 147860532}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &989305807
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4652,7 +4570,7 @@ GameObject:
   - component: {fileID: 1019830234}
   m_Layer: 9
   m_Name: Clarinet Collider (3)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4684,14 +4602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Clarinets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 404218212}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1019830235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4991,7 +4902,7 @@ GameObject:
   - component: {fileID: 1037766162}
   m_Layer: 9
   m_Name: Saxophone Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5023,14 +4934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Saxophones!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1347441844}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1037766163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5956,7 +5860,7 @@ GameObject:
   - component: {fileID: 1174341791}
   m_Layer: 9
   m_Name: Cello Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5988,14 +5892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Cellos!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 909558377}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1174341792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6195,7 +6092,7 @@ GameObject:
   - component: {fileID: 1209330794}
   m_Layer: 9
   m_Name: Clarinet Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6227,14 +6124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Clarinets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 404218212}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1209330795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6310,7 +6200,7 @@ GameObject:
   - component: {fileID: 1218786186}
   m_Layer: 9
   m_Name: Saxophone Collider (3)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6342,14 +6232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Saxophones!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1347441844}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1218786187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6715,7 +6598,7 @@ GameObject:
   - component: {fileID: 1276993593}
   m_Layer: 9
   m_Name: Conga Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6807,14 +6690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Congas!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1342112485}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &1280143709
 GameObject:
   m_ObjectHideFlags: 0
@@ -6845,7 +6721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1280143711
 MonoBehaviour:
@@ -7124,7 +7000,7 @@ GameObject:
   - component: {fileID: 1287684480}
   m_Layer: 9
   m_Name: Cello Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7156,14 +7032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Cellos!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 909558377}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1287684481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7318,7 +7187,7 @@ GameObject:
   - component: {fileID: 1335714098}
   m_Layer: 9
   m_Name: French Horn Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7349,15 +7218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: French Horn
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: French Horn!
   radialImage: {fileID: 1892677966}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1335714099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7448,7 +7310,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1345844366}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -250.174, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7507,7 +7369,7 @@ GameObject:
   - component: {fileID: 1345678635}
   m_Layer: 9
   m_Name: Cello Collider (3)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7539,14 +7401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Cellos!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 909558377}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1345678636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7697,14 +7552,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 909558376}
-  - {fileID: 275985261}
   - {fileID: 404218211}
+  - {fileID: 878965039}
+  - {fileID: 275985261}
   - {fileID: 1347441843}
   - {fileID: 1892677965}
   - {fileID: 147860531}
+  - {fileID: 909558376}
   - {fileID: 1342112484}
-  - {fileID: 878965039}
   - {fileID: 1123385330}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -7803,7 +7658,7 @@ GameObject:
   - component: {fileID: 1352972443}
   m_Layer: 9
   m_Name: French Horn Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7894,15 +7749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: French Horn
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: French Horn!
   radialImage: {fileID: 1892677966}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &1359262257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8076,7 +7924,7 @@ GameObject:
   - component: {fileID: 1385845766}
   m_Layer: 9
   m_Name: French Horn Collider (3)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8107,15 +7955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: French Horn
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: French Horn!
   radialImage: {fileID: 1892677966}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1385845767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9042,7 +8883,7 @@ GameObject:
   - component: {fileID: 1529944937}
   m_Layer: 9
   m_Name: Conga Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9074,14 +8915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Congas!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 1342112485}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1529944938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9412,7 +9246,7 @@ GameObject:
   - component: {fileID: 1553483509}
   m_Layer: 9
   m_Name: Violin Collider (3)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9443,15 +9277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Violins
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: Violins!
   radialImage: {fileID: 275985262}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1553483510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9851,7 +9678,7 @@ GameObject:
   - component: {fileID: 1595330122}
   m_Layer: 9
   m_Name: Cello Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9883,14 +9710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Cellos!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 909558377}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1595330123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10495,15 +10315,15 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1280143710}
-  - {fileID: 2057397078}
   - {fileID: 2031153449}
+  - {fileID: 2057397078}
+  - {fileID: 1280143710}
   - {fileID: 1731496602}
   - {fileID: 1667521302}
   - {fileID: 1445602296}
   - {fileID: 1502600796}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1701772503
 MonoBehaviour:
@@ -10518,9 +10338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instrument:
-  - {fileID: 1280143712}
-  - {fileID: 2057397080}
   - {fileID: 2031153451}
+  - {fileID: 2057397080}
+  - {fileID: 1280143712}
   - {fileID: 1731496604}
   - {fileID: 1667521304}
   - {fileID: 1445602298}
@@ -10528,6 +10348,7 @@ MonoBehaviour:
   waitForTimer: 0.01
   offTimer: 7
   repeatTimer: 7
+  fixingInstrumentIndex: 101
 --- !u!1 &1731496601
 GameObject:
   m_ObjectHideFlags: 0
@@ -10627,7 +10448,7 @@ GameObject:
   - component: {fileID: 1758161964}
   m_Layer: 9
   m_Name: Trumpet Collider (2)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10659,14 +10480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Trumpets!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 147860532}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &1758161965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12011,7 +11825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2031153450
 MonoBehaviour:
@@ -12080,7 +11894,7 @@ GameObject:
   - component: {fileID: 2039668414}
   m_Layer: 9
   m_Name: Violin Collider (1)
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12111,15 +11925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd38f338150f7f48be28e9c4cc7b91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptMessage: Violins
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
+  promptMessage: Violins!
   radialImage: {fileID: 275985262}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!65 &2039668415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12358,7 +12165,7 @@ GameObject:
   - component: {fileID: 2095775316}
   m_Layer: 9
   m_Name: Piano Collider
-  m_TagString: Untagged
+  m_TagString: Interact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12450,14 +12257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   promptMessage: Piano!
-  indicatorTimer: 0
-  maxIndicatorTimer: 1
   radialImage: {fileID: 878965040}
-  myEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  isLooking: 0
-  pressCommand: 323
 --- !u!1 &2098303251
 GameObject:
   m_ObjectHideFlags: 0
