@@ -19,7 +19,6 @@ public class AudioController : MonoBehaviour
         RuntimeManager.AttachInstanceToGameObject(instance, fmodSounds.GetComponent<Transform>());
         instance.setParameterByName("Volume", volume);
         instance.start();
-        
     }
 
     private void Update()

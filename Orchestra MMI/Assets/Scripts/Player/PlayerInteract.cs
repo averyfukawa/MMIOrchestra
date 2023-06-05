@@ -65,41 +65,41 @@ public class PlayerInteract : MonoBehaviour
                     // Experiment to not have a giant array?
                     if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(0);
+                        StartIncreaseVol(0);
                         IncreaseRadial(0);
                     }
                     if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(1);
+                        StartIncreaseVol(1);
                         IncreaseRadial(1);
                     }
                     if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(2);
+                        StartIncreaseVol(2);
                         IncreaseRadial(2);
                     }
                     if (nameOfInstrument.Contains("Saxophone") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(3);
+                        StartIncreaseVol(3);
                         IncreaseRadial(3);
                     }
                     if (nameOfInstrument.Contains("French Horn") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(4);
+                        StartIncreaseVol(4);
                         IncreaseRadial(4);
                     }
                     if (nameOfInstrument.Contains("Trumpet") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(5);
+                        StartIncreaseVol(5);
                         IncreaseRadial(5);
                     }
                     if (nameOfInstrument.Contains("Cello") && hitInfo.transform.CompareTag("Interact"))
                     {
-                        StopAutoVolDecrease(6);
+                        StartIncreaseVol(6);
                         IncreaseRadial(6);
                     }
                 }
-
+                    
                 if (hitInfo.transform.CompareTag("Interact"))
                 {
                     if (Input.GetKeyUp(pressCommand) && hasBeenClicked)
@@ -109,30 +109,37 @@ public class PlayerInteract : MonoBehaviour
                     {
                         if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(0);
                             DecreaseRadial(0);
                         }
                         if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(1);
                             DecreaseRadial(1);
                         }
                         if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(2);
                             DecreaseRadial(2);
                         }
                         if (nameOfInstrument.Contains("Saxophone") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(3);
                             DecreaseRadial(3);
                         }
                         if (nameOfInstrument.Contains("French Horn") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(4);
                             DecreaseRadial(4);
                         }
                         if (nameOfInstrument.Contains("Trumpet") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(5);
                             DecreaseRadial(5);
                         }
                         if (nameOfInstrument.Contains("Cello") && hitInfo.transform.CompareTag("Interact"))
                         {
+                            StopAutoVolDecrease(6);
                             DecreaseRadial(6);
                         }
                     }
@@ -141,13 +148,18 @@ public class PlayerInteract : MonoBehaviour
                 UIText.UpdateText(hitInfo.collider.GetComponent<RayCastInteraction>().promptMessage);
             }
         }
-        Debug.Log("Has been clicked status: " + hasBeenClicked);
     }
 
     private void StopAutoVolDecrease(int lookedInstrument)
     {
         randomizer.fixingInstrumentIndex = lookedInstrument;
         StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
+    }
+
+    private void StartIncreaseVol(int lookedInstrument)
+    {
+        randomizer.fixingInstrumentIndex = lookedInstrument;
+        StartCoroutine(randomizer.IncreaseVolCoroutine(lookedInstrument));
     }
 
     private void IncreaseRadial(int rad)
@@ -188,5 +200,6 @@ public class PlayerInteract : MonoBehaviour
         shouldUpdate = true;
         hasReachedMax = false;
         myEvent.Invoke();
+        randomizer.fixingInstrumentIndex = 101;
     }
 }

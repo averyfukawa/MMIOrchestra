@@ -35,7 +35,16 @@ public class AudioRandomizer : MonoBehaviour
 
     public void CallDecreaseVol()
     {
-        StartCoroutine(DecreaseVolCoroutine(SetRandomInstrument()));
+        if (fixingInstrumentIndex == SetRandomInstrument())
+        {
+            return;
+        }
+        else if (fixingInstrumentIndex != SetRandomInstrument())
+        {
+            StartCoroutine(DecreaseVolCoroutine(SetRandomInstrument()));
+            Debug.Log("Lowering volume of: " + Instrument[SetRandomInstrument()].name);
+        }
+        
     }
 
     public IEnumerator DecreaseVolCoroutine(int chosenInstrument)
@@ -51,10 +60,25 @@ public class AudioRandomizer : MonoBehaviour
             
             float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume -= Time.deltaTime, 0, 1);
             Instrument[chosenInstrument].volume = clampedVolume;
-            //Debug.Log("Decreasing volume: " + Instrument[chosenInstrument].volume);
 
             yield return new WaitForSeconds(waitForTimer);
-            //Debug.Log("Did a loop");
+        }
+    }
+
+    public IEnumerator IncreaseVolCoroutine(int chosenInstrument)
+    {
+        while (Instrument[chosenInstrument].volume < 1)
+        {
+            if (Instrument[chosenInstrument].volume >= 1)
+            {
+                Debug.Log("Volume reached max: " + Instrument[chosenInstrument].volume);
+                yield break;
+            }
+            
+            float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume += Time.deltaTime, 0, 1);
+            Instrument[chosenInstrument].volume = clampedVolume;
+
+            yield return new WaitForSeconds(waitForTimer);
         }
     }
 }
