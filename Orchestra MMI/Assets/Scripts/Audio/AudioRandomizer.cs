@@ -7,7 +7,8 @@ public class AudioRandomizer : MonoBehaviour
 {
     [SerializeField] private AudioController[] Instrument;
         
-    [SerializeField] private float waitForTimer = 0.1f;
+    [SerializeField] private float decreaseVolTimer = 0.1f;
+    [SerializeField] private float increaseVolTimer = 0.1f;
     [SerializeField] private float offTimer = 7.0f;
     [SerializeField] private float repeatTimer = 7.0f;
 
@@ -42,7 +43,6 @@ public class AudioRandomizer : MonoBehaviour
         else if (fixingInstrumentIndex != SetRandomInstrument())
         {
             StartCoroutine(DecreaseVolCoroutine(SetRandomInstrument()));
-            Debug.Log("Lowering volume of: " + Instrument[SetRandomInstrument()].name);
         }
         
     }
@@ -54,14 +54,13 @@ public class AudioRandomizer : MonoBehaviour
         {
             if (Instrument[chosenInstrument].volume <= 0)
             {
-                Debug.Log("Volume reached 0: " + Instrument[chosenInstrument].volume);
                 yield break;
             }
             
             float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume -= Time.deltaTime, 0, 1);
             Instrument[chosenInstrument].volume = clampedVolume;
 
-            yield return new WaitForSeconds(waitForTimer);
+            yield return new WaitForSeconds(decreaseVolTimer);
         }
     }
 
@@ -71,14 +70,13 @@ public class AudioRandomizer : MonoBehaviour
         {
             if (Instrument[chosenInstrument].volume >= 1)
             {
-                Debug.Log("Volume reached max: " + Instrument[chosenInstrument].volume);
                 yield break;
             }
             
             float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume += Time.deltaTime, 0, 1);
             Instrument[chosenInstrument].volume = clampedVolume;
 
-            yield return new WaitForSeconds(waitForTimer);
+            yield return new WaitForSeconds(increaseVolTimer);
         }
     }
 }
