@@ -38,6 +38,9 @@ public class PlayerInteract : MonoBehaviour
     [Header("Instrument Volume Interaction")]
     [SerializeField] private AudioRandomizer randomizer;
 
+    [Header("Instrument Animations")]
+    [SerializeField] private Animator[] animators;
+
     private void Start()
     {
         UIText = GetComponent<PlayerUI>();
@@ -114,6 +117,7 @@ public class PlayerInteract : MonoBehaviour
                         if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
                         {
                             StopAutoVolDecrease(1);
+                            animators[1].SetBool("openLidBool", true);
                             DecreaseRadial(1);
                         }
                         if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
@@ -170,6 +174,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (indicatorTimer >= maxIndicatorTimer)
         {
+            myEvent.Invoke();
             hasReachedMax = true;
             indicatorTimer = 0.0f;
             radialImage[rad].fillAmount = maxIndicatorTimer;
@@ -198,7 +203,6 @@ public class PlayerInteract : MonoBehaviour
         hasBeenClicked = false;
         shouldUpdate = true;
         hasReachedMax = false;
-        myEvent.Invoke();
         randomizer.fixingInstrumentIndex = 101;
     }
 }

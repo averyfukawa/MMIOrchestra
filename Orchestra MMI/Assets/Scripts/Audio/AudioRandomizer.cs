@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public class AudioRandomizer : MonoBehaviour
 {
     [SerializeField] private AudioController[] Instrument;
-        
+
     [SerializeField] private float decreaseVolTimer = 0.1f;
     [SerializeField] private float increaseVolTimer = 0.1f;
     [SerializeField] private float offTimer = 7.0f;
@@ -14,6 +14,7 @@ public class AudioRandomizer : MonoBehaviour
 
     private int previousNumber = 100;
     [HideInInspector] public int fixingInstrumentIndex = 101;
+    [SerializeField] private Animator[] animators;
 
     private void Start()
     {
