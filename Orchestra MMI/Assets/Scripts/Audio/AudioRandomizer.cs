@@ -50,7 +50,6 @@ public class AudioRandomizer : MonoBehaviour
 
     public IEnumerator DecreaseVolCoroutine(int chosenInstrument)
     {
-        //Debug.Log("Started Decreasing volume " + Instrument[chosenInstrument].volume);
         while (Instrument[chosenInstrument].volume > 0)
         {
             if (Instrument[chosenInstrument].volume <= 0)

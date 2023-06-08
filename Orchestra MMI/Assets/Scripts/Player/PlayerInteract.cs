@@ -28,15 +28,16 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private UnityEvent myEvent = null;
 
     //Different bools to make sure we can update the looked at instrument
-    private bool shouldUpdate = false;
-    private bool hasBeenClicked = false;
+    //private bool shouldUpdate = false;
+    //private bool hasBeenClicked = false;
     private bool hasReachedMax = false;
 
     [Header("Key needed to be pressed to interact")]
-    [SerializeField] private KeyCode pressCommand = KeyCode.Mouse0;
+    //[SerializeField] private KeyCode pressCommand = KeyCode.Mouse0;
 
     [Header("Instrument Volume Interaction")]
     [SerializeField] private AudioRandomizer randomizer;
+    [SerializeField] private VoiceRecognition voiceRecognition;
 
     [Header("Instrument Animations")]
     [SerializeField] private Animator[] animators;
@@ -60,10 +61,9 @@ public class PlayerInteract : MonoBehaviour
             string nameOfInstrument = hitInfo.collider.name.ToString();
             if (hitInfo.collider.GetComponent<RayCastInteraction>() != null)
             {
-                if (Input.GetKey(pressCommand) && !hasReachedMax && hitInfo.transform.CompareTag("Interact"))
+                if (voiceRecognition.instrumentOn && !hasReachedMax && hitInfo.transform.CompareTag("Interact"))
                 {
-                    hasBeenClicked = true;
-
+                    
                     // Experiment to not have a giant array?
                     if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
                     {
@@ -101,73 +101,20 @@ public class PlayerInteract : MonoBehaviour
                         IncreaseRadial(6);
                     }
                 }
-                    
-                if (hitInfo.transform.CompareTag("Interact"))
-                {
-                    if (Input.GetKeyUp(pressCommand) && hasBeenClicked)
-                        KeyReleased();
-
-                    if (shouldUpdate && indicatorTimer != maxIndicatorTimer && !hasReachedMax)
-                    {
-                        if (nameOfInstrument.Contains("Clarinet") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(0);
-                            DecreaseRadial(0);
-                        }
-                        if (nameOfInstrument.Contains("Piano") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(1);
-                            animators[1].SetBool("openLidBool", true);
-                            DecreaseRadial(1);
-                        }
-                        if (nameOfInstrument.Contains("Violin") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(2);
-                            DecreaseRadial(2);
-                        }
-                        if (nameOfInstrument.Contains("Saxophone") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(3);
-                            DecreaseRadial(3);
-                        }
-                        if (nameOfInstrument.Contains("French Horn") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(4);
-                            DecreaseRadial(4);
-                        }
-                        if (nameOfInstrument.Contains("Trumpet") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(5);
-                            DecreaseRadial(5);
-                        }
-                        if (nameOfInstrument.Contains("Cello") && hitInfo.transform.CompareTag("Interact"))
-                        {
-                            StopAutoVolDecrease(6);
-                            DecreaseRadial(6);
-                        }
-                    }
-                }
-
-                UIText.UpdateText(hitInfo.collider.GetComponent<RayCastInteraction>().promptMessage);
+            UIText.UpdateText(hitInfo.collider.GetComponent<RayCastInteraction>().promptMessage);
             }
         }
     }
 
-    private void StopAutoVolDecrease(int lookedInstrument)
-    {
-        randomizer.fixingInstrumentIndex = lookedInstrument;
-        StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
-    }
-
     private void StartIncreaseVol(int lookedInstrument)
     {
-        randomizer.fixingInstrumentIndex = lookedInstrument;
+        StopCoroutine(randomizer.DecreaseVolCoroutine(lookedInstrument));
         StartCoroutine(randomizer.IncreaseVolCoroutine(lookedInstrument));
     }
 
     private void IncreaseRadial(int rad)
     {
-        shouldUpdate = false;
+        randomizer.fixingInstrumentIndex = rad;
         radialImage[rad].enabled = true;
         float clampedIndicator = Mathf.Clamp(indicatorTimer += Time.deltaTime, 0, 1);
         radialImage[rad].fillAmount = clampedIndicator;
@@ -178,30 +125,15 @@ public class PlayerInteract : MonoBehaviour
             hasReachedMax = true;
             indicatorTimer = 0.0f;
             radialImage[rad].fillAmount = maxIndicatorTimer;
-            shouldUpdate = false;
             radialImage[rad].enabled = false;
+            randomizer.fixingInstrumentIndex = 101;
         }
     }
 
-    private void DecreaseRadial(int rad)
+    private IEnumerator ResetInstrument()
     {
-        radialImage[rad].enabled = true;
-        float clampedIndicator = Mathf.Clamp(indicatorTimer -= Time.deltaTime, 0, 1);
-        radialImage[rad].fillAmount = clampedIndicator;
-        
-        if (indicatorTimer <= 0.0f)
-        {
-            indicatorTimer = 0.0f;
-            radialImage[rad].fillAmount = 0;
-            radialImage[rad].enabled = false;
-            shouldUpdate = false;
-        }
-    }
+        yield return new WaitForSeconds(2.0f);
 
-    private void KeyReleased()
-    {
-        hasBeenClicked = false;
-        shouldUpdate = true;
         hasReachedMax = false;
         randomizer.fixingInstrumentIndex = 101;
     }
