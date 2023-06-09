@@ -11,6 +11,8 @@ public class GyroRotate : MonoBehaviour
     private Transform _rawGyroRotation;
     private float _tempSmoothing;
 
+    private Input attitude;
+
     // Settings
     private float _smoothing = 0.095f;
     private void Update()
@@ -35,6 +37,14 @@ public class GyroRotate : MonoBehaviour
         StartCoroutine(CalibrateYAngle());
     }
 
+    private void ApplyGyroRotation()
+    {
+        _rawGyroRotation.rotation = Input.gyro.attitude;
+        _rawGyroRotation.Rotate(0f, 0f, 180f, Space.Self);
+        _rawGyroRotation.Rotate(90f, 180f, 0f, Space.World);
+        _appliedGyroYAngle = _rawGyroRotation.eulerAngles.y;
+    }
+
     private IEnumerator CalibrateYAngle()
     {
         _tempSmoothing = _smoothing;
@@ -42,14 +52,6 @@ public class GyroRotate : MonoBehaviour
         _calibrationYAngle = _appliedGyroYAngle - _initialYAngle;
         yield return null;
         _smoothing = _tempSmoothing;
-    }
-
-    private void ApplyGyroRotation()
-    {
-        _rawGyroRotation.rotation = Input.gyro.attitude;
-        _rawGyroRotation.Rotate(0f, 0f, 180f, Space.Self);
-        _rawGyroRotation.Rotate(90f, 180f, 0f, Space.World);
-        _appliedGyroYAngle = _rawGyroRotation.eulerAngles.y;
     }
 
     private void ApplyCalibration()
