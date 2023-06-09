@@ -4,10 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using UnityEngine.Windows.Speech;
+//using UnityEngine.Windows.Speech;
 
 public class VoiceRecognition : MonoBehaviour
 {
+    public bool instrumentOn;
+    /*
     private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
@@ -55,6 +57,7 @@ public class VoiceRecognition : MonoBehaviour
             return;
         }
     }
+    */
 
     /*
     private bool CheckPermissions()

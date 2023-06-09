@@ -1,13 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp-firstpass.dll:
+    - TextSpeech.SpeechToText
     Assembly-CSharp.dll:
-    - AudioController
-    - AudioRandomizer
-    - Cellos
-    - GyroRotate
-    - MouseCamera
-    - PlayerInteract
-    - PlayerUI
+    - VoiceController
+    - clickHandler
     FMODUnity.dll:
     - FMODUnity.PlatformAndroid
     - FMODUnity.PlatformAppleTV
@@ -21,8 +18,6 @@ ScriptsOnlyBuild:
     - FMODUnity.PlatformWebGL
     - FMODUnity.PlatformWindows
     - FMODUnity.Settings
-    - FMODUnity.StudioEventEmitter
-    - FMODUnity.StudioListener
     FMODUnityEditor.dll:
     - FMODUnity.EditorBankRef
     - FMODUnity.EditorEventRef
@@ -54,31 +49,22 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector3
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
-    - UnityEngine.Rendering.Volume
-    - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.ForwardRendererData
     - UnityEngine.Rendering.Universal.PostProcessData
-    - UnityEngine.Rendering.Universal.Tonemapping
-    - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
-    - UnityEngine.Rendering.Universal.Vignette
-    - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
-    - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -101,7 +87,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/Scene_Orchestra.unity:
+    Assets/Scenes/STT_Test.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -122,173 +108,137 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
-    - Class: 74
+    - Class: 81
       Script: {instanceID: 0}
     - Class: 89
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 11618}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11622}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11624}
     - Class: 114
-      Script: {instanceID: 11668}
+      Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 11738}
-    - Class: 114
-      Script: {instanceID: 11818}
-    - Class: 114
-      Script: {instanceID: 11946}
+      Script: {instanceID: 11846}
     - Class: 114
       Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 12002}
     - Class: 114
-      Script: {instanceID: 12218}
+      Script: {instanceID: 12114}
     - Class: 114
-      Script: {instanceID: 12276}
+      Script: {instanceID: 12246}
     - Class: 114
-      Script: {instanceID: 12378}
+      Script: {instanceID: 12306}
     - Class: 114
-      Script: {instanceID: 12412}
+      Script: {instanceID: 12410}
     - Class: 114
-      Script: {instanceID: 12418}
+      Script: {instanceID: 12444}
     - Class: 114
-      Script: {instanceID: 12424}
+      Script: {instanceID: 12450}
     - Class: 114
-      Script: {instanceID: 12534}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12686}
+      Script: {instanceID: 12854}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12866}
     - Class: 114
-      Script: {instanceID: 12818}
+      Script: {instanceID: 12918}
     - Class: 114
-      Script: {instanceID: 12830}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 13074}
     - Class: 114
-      Script: {instanceID: 12882}
+      Script: {instanceID: 13152}
     - Class: 114
-      Script: {instanceID: 12920}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13032}
-    - Class: 114
-      Script: {instanceID: 13060}
-    - Class: 114
-      Script: {instanceID: 13110}
-    - Class: 114
-      Script: {instanceID: 13164}
-    - Class: 114
-      Script: {instanceID: 13230}
-    - Class: 114
-      Script: {instanceID: 13412}
+      Script: {instanceID: 13274}
     - Class: 114
       Script: {instanceID: 13462}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13512}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13582}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13874}
+      Script: {instanceID: 13928}
     - Class: 114
-      Script: {instanceID: 13976}
+      Script: {instanceID: 14060}
     - Class: 114
-      Script: {instanceID: 14006}
+      Script: {instanceID: 14090}
     - Class: 114
-      Script: {instanceID: 14036}
+      Script: {instanceID: 14276}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14466}
     - Class: 114
-      Script: {instanceID: 14218}
+      Script: {instanceID: 14548}
     - Class: 114
-      Script: {instanceID: 14404}
+      Script: {instanceID: 14552}
     - Class: 114
-      Script: {instanceID: 14486}
+      Script: {instanceID: 14568}
     - Class: 114
-      Script: {instanceID: 14490}
+      Script: {instanceID: 14576}
     - Class: 114
-      Script: {instanceID: 14506}
+      Script: {instanceID: 14722}
     - Class: 114
-      Script: {instanceID: 14514}
+      Script: {instanceID: 14762}
     - Class: 114
-      Script: {instanceID: 14660}
+      Script: {instanceID: 14770}
     - Class: 114
-      Script: {instanceID: 14698}
+      Script: {instanceID: 14842}
     - Class: 114
-      Script: {instanceID: 14706}
+      Script: {instanceID: 15132}
     - Class: 114
-      Script: {instanceID: 14758}
+      Script: {instanceID: 15216}
     - Class: 114
-      Script: {instanceID: 14776}
+      Script: {instanceID: 15244}
     - Class: 114
-      Script: {instanceID: 14882}
+      Script: {instanceID: 15264}
     - Class: 114
-      Script: {instanceID: 14940}
+      Script: {instanceID: 15380}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15500}
     - Class: 114
-      Script: {instanceID: 15144}
+      Script: {instanceID: 15556}
     - Class: 114
-      Script: {instanceID: 15172}
+      Script: {instanceID: 15722}
     - Class: 114
-      Script: {instanceID: 15192}
+      Script: {instanceID: 15778}
     - Class: 114
-      Script: {instanceID: 15308}
+      Script: {instanceID: 16008}
     - Class: 114
-      Script: {instanceID: 15424}
+      Script: {instanceID: 16010}
     - Class: 114
-      Script: {instanceID: 15434}
+      Script: {instanceID: 16044}
     - Class: 114
-      Script: {instanceID: 15480}
+      Script: {instanceID: 16076}
     - Class: 114
-      Script: {instanceID: 15646}
+      Script: {instanceID: 16148}
     - Class: 114
-      Script: {instanceID: 15702}
+      Script: {instanceID: 16216}
     - Class: 114
-      Script: {instanceID: 15804}
+      Script: {instanceID: 16224}
     - Class: 114
-      Script: {instanceID: 15928}
+      Script: {instanceID: 18866}
     - Class: 114
-      Script: {instanceID: 15930}
+      Script: {instanceID: 23934}
     - Class: 114
-      Script: {instanceID: 15964}
-    - Class: 114
-      Script: {instanceID: 15996}
-    - Class: 114
-      Script: {instanceID: 16066}
-    - Class: 114
-      Script: {instanceID: 16114}
-    - Class: 114
-      Script: {instanceID: 16118}
-    - Class: 114
-      Script: {instanceID: 16132}
-    - Class: 114
-      Script: {instanceID: 16140}
+      Script: {instanceID: 26178}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -345,6 +295,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: e3fb82011d0a6189f0d7aa1772816584
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: VoskSpeechToText
   - hash:
       serializedVersion: 2
       Hash: 8c328a0ffa03c1bcb9332bb39f4f8453
@@ -629,7 +585,7 @@ ScriptsOnlyBuild:
     className: Settings
   - hash:
       serializedVersion: 2
-      Hash: bc6232ee2a65d2fab947d59d0192a40a
+      Hash: 1024dcbcdda91ec47d8aaea0811ad41d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInteract
@@ -737,6 +693,12 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: 4e3cd69b18e6e52af5f57059945700b8
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: VoskDialogText
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
@@ -821,6 +783,12 @@ ScriptsOnlyBuild:
     className: ColorLookup
   - hash:
       serializedVersion: 2
+      Hash: 36465f48433066ad8effa5b1d48ce925
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: VoskResultText
+  - hash:
+      serializedVersion: 2
       Hash: 287d24913b691af45a2b36457bfb7c87
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -849,6 +817,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: MotionBlur
+  - hash:
+      serializedVersion: 2
+      Hash: bc8573931fe602b1b58967be4bb64dd8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VoiceRecognition
   - hash:
       serializedVersion: 2
       Hash: 36025d42bf23fda83a55bf1429201821
@@ -1017,6 +991,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerVector2
+  - hash:
+      serializedVersion: 2
+      Hash: 26f09d94209cbd0ed21e052cc1e40752
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: VoiceProcessor
   - hash:
       serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
@@ -1317,7 +1297,55 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 34965b31fd43229f4128822b4e961ad5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: AndroidDebug
+  - hash:
+      serializedVersion: 2
+      Hash: 930dcf8fa4e28dde431265afd3805cce
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: SampleSpeechToText
+  - hash:
+      serializedVersion: 2
+      Hash: 6006a2d53b6de77dfc1abaecc7c13cc2
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: SpeechButton
+  - hash:
+      serializedVersion: 2
+      Hash: d1a5d21d9bcc6c4678983849c91d8c5d
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: TextSpeech
+    className: TextToSpeech
+  - hash:
+      serializedVersion: 2
+      Hash: 261e4a8fb1a9635d5ec126f5eeb3588c
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: TextSpeech
+    className: SpeechToText
+  - hash:
+      serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: RotateAnim
+  - hash:
+      serializedVersion: 2
+      Hash: 8b23b953c17f79c0462445b4293fd7e6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: clickHandler
+  - hash:
+      serializedVersion: 2
+      Hash: b5d01a44c9a694c6b9bce4626dd0a12e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: VoiceController
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Scene_Orchestra.unity
-  playerPath: C:/Users/Gebruiker/Desktop/Redos/Build/orchestra.apk
+  - Assets/Scenes/STT_Test.unity
+  playerPath: C:/Users/Gebruiker/Desktop/Redos/Build/TTSTest.apk

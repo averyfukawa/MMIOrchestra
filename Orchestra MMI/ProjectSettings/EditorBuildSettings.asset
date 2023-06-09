@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_Orchestra.unity
     guid: 45b142e1c9703fa4d8f9318288516fe5
+  - enabled: 1
+    path: Assets/Scenes/STT_Test.unity
+    guid: 47795573af869ee41b2faa6a12a9baaa
   m_configObjects: {}
