@@ -12,7 +12,8 @@ public class VoiceRecognition : MonoBehaviour
     private Dictionary<string, Action> actions = new Dictionary<string, Action>();
 
     public bool instrumentOn = false;
-    [SerializeField]private AudioRandomizer audioRandomizer;
+    [SerializeField] private AudioRandomizer audioRandomizer;
+    [SerializeField] private PlayerInteract resetInst;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class VoiceRecognition : MonoBehaviour
         if (instrumentOn && audioRandomizer.fixingInstrumentIndex == 101)
         {
             Debug.Log(audioRandomizer.fixingInstrumentIndex.ToString());
+            StartCoroutine(resetInst.ResetInstrument());
             instrumentOn = false;
         } 
         else

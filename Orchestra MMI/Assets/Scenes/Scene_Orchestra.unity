@@ -3491,6 +3491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instrumentOn: 0
   audioRandomizer: {fileID: 1701772503}
+  resetInst: {fileID: 325458674}
 --- !u!1001 &795070060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4934,7 +4935,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019957379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1ee55ae5fe327447ad5ec65c46cee94, type: 3}
   m_Name: 
@@ -4977,7 +4978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019957379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058ba3abb55a8a943aff8672eeb7b2f9, type: 3}
   m_Name: 
@@ -6869,7 +6870,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280143710}
-  - component: {fileID: 1280143711}
   - component: {fileID: 1280143712}
   m_Layer: 0
   m_Name: Flute
@@ -6886,43 +6886,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280143709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.411, y: 5.865, z: 7.372}
+  m_LocalPosition: {x: 2.806, y: 3.938, z: 2.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1280143711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280143709}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1285136190
-      Data2: 1207305509
-      Data3: -1095059062
-      Data4: 453734326
-    Path: event:/Flute
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &1280143712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8528,7 +8497,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1445602296}
-  - component: {fileID: 1445602297}
   - component: {fileID: 1445602298}
   m_Layer: 0
   m_Name: Trumpet
@@ -8545,43 +8513,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445602295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.72, y: 5.121, z: 4.99}
+  m_LocalPosition: {x: -3.787, y: 3.514, z: 1.867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1445602297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445602295}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 634792005
-      Data2: 1321802753
-      Data3: -1025215833
-      Data4: 1946758404
-    Path: event:/Trumpet
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &1445602298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8772,7 +8709,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1502600796}
-  - component: {fileID: 1502600797}
   - component: {fileID: 1502600798}
   m_Layer: 0
   m_Name: Cello
@@ -8789,43 +8725,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502600795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.864, y: 5.35, z: 1.522}
+  m_LocalPosition: {x: 4.245, y: 3.799, z: 1.019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1502600797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502600795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 68426028
-      Data2: 1225266421
-      Data3: -1724900428
-      Data4: -797761794
-    Path: event:/Cello
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &1502600798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10222,7 +10127,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1667521302}
-  - component: {fileID: 1667521303}
   - component: {fileID: 1667521304}
   m_Layer: 0
   m_Name: French Horn
@@ -10239,43 +10143,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667521301}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.186, y: 5.121, z: 6.682}
+  m_LocalPosition: {x: -1.507, y: 3.717, z: 3.378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1667521303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667521301}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1114662366
-      Data2: 1255703070
-      Data3: 1163004313
-      Data4: 1002018384
-    Path: event:/French Horn
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &1667521304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10469,7 +10342,7 @@ MonoBehaviour:
   decreaseVolTimer: 0.01
   increaseVolTimer: 0.5
   offTimer: 7
-  repeatTimer: 7
+  repeatTimer: 13
   fixingInstrumentIndex: 101
   animators:
   - {fileID: 139055681}
@@ -10479,6 +10352,8 @@ MonoBehaviour:
   - {fileID: 17476391}
   - {fileID: 1764217658}
   - {fileID: 341118500}
+  stoppingParticle: {fileID: 5777527330923954342, guid: 32487bb36b45a3140bf35447bb4e8be3,
+    type: 3}
 --- !u!1 &1731496601
 GameObject:
   m_ObjectHideFlags: 0
@@ -10488,7 +10363,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1731496602}
-  - component: {fileID: 1731496603}
   - component: {fileID: 1731496604}
   m_Layer: 0
   m_Name: Sax/Bassoon
@@ -10505,43 +10379,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731496601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.333, y: 5.121, z: 6.869}
+  m_LocalPosition: {x: 0.065, y: 3.691, z: 4.007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1731496603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731496601}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 625489394
-      Data2: 1341786927
-      Data3: -1845249888
-      Data4: 304833372
-    Path: event:/Bassoon
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &1731496604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11954,7 +11797,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2031153449}
-  - component: {fileID: 2031153450}
   - component: {fileID: 2031153451}
   m_Layer: 0
   m_Name: Clarinet
@@ -11971,43 +11813,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031153448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.75, y: 5.121, z: 5.37}
+  m_LocalPosition: {x: 1.466, y: 3.818, z: 3.472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2031153450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031153448}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1712716690
-      Data2: 1237562591
-      Data3: -1237408622
-      Data4: -766830457
-    Path: event:/Clarinet
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &2031153451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12225,7 +12036,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057397078}
-  - component: {fileID: 2057397079}
   - component: {fileID: 2057397080}
   m_Layer: 0
   m_Name: Piano
@@ -12242,43 +12052,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057397077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.05, y: 8.14, z: 7.82}
+  m_LocalPosition: {x: -8.697, y: 8.14, z: 6.793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701772502}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2057397079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057397077}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 889203555
-      Data2: 1248738218
-      Data3: 92245379
-      Data4: -1001495198
-    Path: event:/Piano
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 100
 --- !u!114 &2057397080
 MonoBehaviour:
   m_ObjectHideFlags: 0

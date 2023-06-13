@@ -130,7 +130,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetInstrument()
+    public IEnumerator ResetInstrument()
     {
         yield return new WaitForSeconds(2.0f);
 

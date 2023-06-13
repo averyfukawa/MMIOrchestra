@@ -10,11 +10,13 @@ public class AudioRandomizer : MonoBehaviour
     [SerializeField] private float decreaseVolTimer = 0.1f;
     [SerializeField] private float increaseVolTimer = 0.1f;
     [SerializeField] private float offTimer = 7.0f;
-    [SerializeField] private float repeatTimer = 7.0f;
+    [SerializeField] private float repeatTimer = 13.0f;
 
     private int previousNumber = 100;
     [HideInInspector] public int fixingInstrumentIndex = 101;
     [SerializeField] private Animator[] animators;
+
+    [SerializeField] private GameObject stoppingParticle;
 
     private void Start()
     {
@@ -50,15 +52,26 @@ public class AudioRandomizer : MonoBehaviour
 
     public IEnumerator DecreaseVolCoroutine(int chosenInstrument)
     {
+        Instantiate(stoppingParticle, Instrument[chosenInstrument].transform.position, transform.rotation);
+        yield return new WaitForSeconds(5f);
+
         while (Instrument[chosenInstrument].volume > 0)
         {
-            if (Instrument[chosenInstrument].volume <= 0)
+            if (Instrument[chosenInstrument].volume <= 0.1f)
             {
                 yield break;
             }
-            
+
             float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume -= Time.deltaTime, 0, 1);
             Instrument[chosenInstrument].volume = clampedVolume;
+
+            if (chosenInstrument != 1)
+                animators[chosenInstrument].SetFloat("Speed", 0f);
+            else if (chosenInstrument == 1)
+            {
+                animators[chosenInstrument].SetFloat("par_playSpeed", 1f);
+                animators[chosenInstrument].Play("LidClosing");
+            }
 
             yield return new WaitForSeconds(decreaseVolTimer);
         }
@@ -75,6 +88,14 @@ public class AudioRandomizer : MonoBehaviour
             
             float clampedVolume = Mathf.Clamp(Instrument[chosenInstrument].volume += Time.deltaTime, 0, 1);
             Instrument[chosenInstrument].volume = clampedVolume;
+            
+            if (chosenInstrument != 1)
+                animators[chosenInstrument].SetFloat("Speed", 1f);
+            else if (chosenInstrument == 1)
+            {
+                animators[chosenInstrument].SetFloat("par_playSpeed", 1f);
+                animators[chosenInstrument].Play("LidOpeningAnim");
+            }
 
             yield return new WaitForSeconds(increaseVolTimer);
         }
